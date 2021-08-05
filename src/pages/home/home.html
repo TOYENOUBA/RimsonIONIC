@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      RIMSON
+    </ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header class="Myheadercard">Contact</ion-card-header>
+    <ion-card-content padding="">
+      <p>Nom:<strong>{{contact.name}}</strong></p>
+      <p>Prenom:<strong>{{contact.names}}</strong></p>
+      <p>Tel:<strong>{{contact.tel}}</strong></p>
+      <p>Email:<strong>{{contact.email}}</strong></p>
+      <img src="{{contact.photo}}">
+
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Galllery
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div padding="">
+    <ion-item>
+      <ion-label>Mot cle:</ion-label>
+      <ion-input type="text" [(ngModel)]="motCle" ></ion-input>
+    </ion-item>
+    <button ion-button="" block="" (click)="onSearch()" >Chercher</button>
+  </div>
+  <ion-card *ngFor="let im of images?.hits">
+    <ion-card-header class="myCardHeader">
+      <ion-item>
+        <ion-avatar item-start="">
+          <img src="{{im.userImageURL}}">
+        </ion-avatar>
+        <h2>{{im.user}}</h2>
+        <p>{{im.user_id}}</p>
+      </ion-item>
+    </ion-card-header>
+    <img src="{{im.previewURL}}" (click)="onDetailImage(im)">
+    <ion-card-content>
+      <p>Tags:<strong>{{im.tags}}</strong></p>
+      <p>Haight:<strong>{{im.imageHeight}}</strong></p>
+      <p>Width:<strong>{{im.imageWidth}}</strong></p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{im.likes}} J'aime</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>{{im.comments}} Commentaire</div>
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          <div>{{im.favorites}} Favorietes</div>
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
